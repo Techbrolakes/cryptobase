@@ -12,7 +12,7 @@ const theme = extendTheme({
     config,
     fonts: {
         body: 'satoshi, sans-serif',
-        heading: 'fenway, serif',
+        heading: 'duffish, serif',
         mono: 'Menlo, monospace',
     },
     layerStyles: {
@@ -29,18 +29,10 @@ const theme = extendTheme({
     },
     semanticTokens: {
         colors: {
-            primary: {
-                _dark: 'red.400',
-                default: 'red.500',
-            },
-            secondary: {
-                _dark: 'red.700',
-                default: 'red.800',
-            },
             text: {
-                _dark: 'red.500',
-                _light: '#000',
-                default: 'gray.900',
+                _dark: 'gray.50',
+                _light: 'gray.500',
+                default: 'gray.400',
             },
         },
     },
@@ -49,14 +41,22 @@ const theme = extendTheme({
             // you can also use responsive styles
             fontSize: ['48px', '72px'],
             fontWeight: 'bold',
-            letterSpacing: '-2%',
             lineHeight: '110%',
         },
         h2: {
             fontSize: ['36px', '48px'],
             fontWeight: 'semibold',
-            letterSpacing: '-1%',
             lineHeight: '110%',
+        },
+        h3: {
+            fontSize: ['24px', '36px', '48px'],
+            fontWeight: 'semibold',
+            lineHeight: '110%',
+        },
+        p: {
+            fontSize: ['14px', '15px', '16px'],
+            fontWeight: 'medium',
+            lineHeight: '24px',
         },
     },
 });
