@@ -1,21 +1,52 @@
 @tailwind base;
 
+@font-face {
+    font-family: 'fenway';
+    src: url('../public/fonts/Fenway.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@font-face {
+    font-family: 'satoshi';
+    src: url('../public/fonts/Satoshi-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-*{
+@font-face {
+    font-family: 'satoshi';
+    src: url('../public/fonts/Satoshi-Medium.otf') format('truetype');
+    font-weight: medium;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'satoshi';
+    src: url('../public/fonts/Satoshi-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'satoshi';
+    src: url('../public/fonts/Satoshi-Light.otf') format('truetype');
+    font-weight: light;
+    font-style: normal;
+}
+
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-
+    font-family: 'satoshi', 'Courier New', Courier, monospace;
 }
 
 @layer components {
     .keble-btn {
-        @apply bg-g200 h-10 text-white rounded-md font-medium px-4 outline-4 shadow
+        @apply bg-g200 h-10 text-white rounded-md font-medium px-4 outline-4 shadow;
     }
 }
-
 
 @tailwind components;
 @tailwind utilities;

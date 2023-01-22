@@ -17,14 +17,15 @@
     "baseUrl": ".",
     "paths": {
       "@/common/*": ["components/common/*"],
-      "@/layouts/*": ["components/layouts/*"],
-      "@/pageComponents/*": ["components/pageComponents/*"],
+      "@/blocks/*": ["components/blocks/*"],
+      "@/animations/*": ["animations/*"],
+      "@/layouts/*": ["layouts/*"],
       "@/services/*": ["config/services/*"],
       "@pages/*": ["pages/*"],
       "@config/*": ["config/*"],
       "@logger": ["logger.config"],
       "@theme": ["theme.ts"],
-      "@tests/*": ["__tests__/*"],
+      "@tests/*": ["tests/*"],
       "@mocks/*": ["__mocks__/*"],
     }
   },
