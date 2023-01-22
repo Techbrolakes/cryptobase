@@ -47,6 +47,7 @@
     }
 },
 "settings": {
+  "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
    "react": {
     "version": "detect"
   },
