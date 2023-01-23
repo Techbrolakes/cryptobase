@@ -1,39 +1,38 @@
-import Logo from '@/common/Logo';
-import { Box, Flex, Stack, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
-import { MdHome } from 'react-icons/md';
-import constants from '@config/constants';
+import Logo from '@/common/Logo';
 import themeConstants from '@/themeConstants/index';
 import Link from 'next/link';
+import { Flex, Stack, Text } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
+import config from '@/configConstants';
 
+const { NAV_ITEMS } = config;
 const { sidebarOuterBoxStyles } = themeConstants;
-const { CLIENT_ROUTES } = constants;
 
 const Menu: React.FC = () => {
+    const router = useRouter();
+    const path = router.pathname;
+
     return (
-        <Stack sx={sidebarOuterBoxStyles} spacing="20">
+        <Stack sx={sidebarOuterBoxStyles} spacing="16">
             <Logo />
+
             <Stack direction={'column'} spacing={'14'}>
-                <Link href={CLIENT_ROUTES.home}>
-                    <a>
-                        <Flex align="center" gap="10px">
-                            <Text>
-                                <MdHome />
-                            </Text>
-                            <Text as="p">Home</Text>
-                        </Flex>
-                    </a>
-                </Link>
-                <Link href={CLIENT_ROUTES.coins}>
-                    <a>
-                        <Flex align="center" gap="10px">
-                            <Text>
-                                <MdHome />
-                            </Text>
-                            <Text as="p">Coins</Text>
-                        </Flex>
-                    </a>
-                </Link>
+                {NAV_ITEMS.map(({ icon, link, name }) => (
+                    <Link href={link} key={link}>
+                        <a>
+                            <Flex
+                                align="center"
+                                gap="10px"
+                                className={path === link ? 'linkActiveStyles' : null}
+                                _hover={{ color: 'blue.500' }}
+                            >
+                                <Text>{icon}</Text>
+                                <Text as="p">{name}</Text>
+                            </Flex>
+                        </a>
+                    </Link>
+                ))}
             </Stack>
         </Stack>
     );

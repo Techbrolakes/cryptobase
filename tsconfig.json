@@ -24,6 +24,8 @@
       "@/services/*": ["config/services/*"],
       "@pages/*": ["pages/*"],
       "@config/*": ["config/*"],
+      "@/icons": ["icons/index.ts"],
+      "@/configConstants": ["config/constants.tsx"],
       "@logger": ["logger.config"],
       "@theme": ["theme.ts"],
       "@tests/*": ["tests/*"],

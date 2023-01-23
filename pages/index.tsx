@@ -15,16 +15,6 @@ const Home: NextPage = () => {
                 aspernatur adipisci ea blanditiis aperiam eos voluptate alias necessitatibus eligendi vero autem
                 repudiandae accusamus libero.
             </section>
-            <section className="min-h-screen">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis rerum eveniet, sapiente fugiat aut et
-                aspernatur adipisci ea blanditiis aperiam eos voluptate alias necessitatibus eligendi vero autem
-                repudiandae accusamus libero.
-            </section>
-            <section className="min-h-screen">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis rerum eveniet, sapiente fugiat aut et
-                aspernatur adipisci ea blanditiis aperiam eos voluptate alias necessitatibus eligendi vero autem
-                repudiandae accusamus libero.
-            </section>
         </MainLayout>
     );
 };
