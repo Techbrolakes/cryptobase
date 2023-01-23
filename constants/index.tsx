@@ -1,6 +1,5 @@
 const sidebarOuterBoxStyles = {
     direction: 'column',
-    height: '100vh',
     position: 'fixed',
     px: '5',
 };

@@ -7,6 +7,8 @@ import 'styles/globals.scss';
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from '@theme';
+import { store } from '@config/store/store';
+import { Provider } from 'react-redux';
 
 Router.events.on('routeChangeStart', nProgress.start);
 Router.events.on('routeChangeError', nProgress.done);
@@ -14,9 +16,11 @@ Router.events.on('routeChangeComplete', nProgress.done);
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <ChakraProvider resetCSS theme={theme}>
-            <Component {...pageProps} />
-        </ChakraProvider>
+        <Provider store={store}>
+            <ChakraProvider resetCSS theme={theme}>
+                <Component {...pageProps} />
+            </ChakraProvider>
+        </Provider>
     );
 }
 
