@@ -1,7 +1,7 @@
 import React from 'react';
 import icons from '@/icons';
 
-const { BsCurrencyExchange, MdHome, SiBitcoinsv, GiMonkey } = icons;
+const { BsCurrencyExchange, MdHome, SiBitcoinsv, GiMonkey, SiAboutdotme } = icons;
 const ENVIRONMENT = {
     development: process.env.NEXT_PUBLIC_ENVIRONMENT === 'development',
     production: process.env.NEXT_PUBLIC_ENVIRONMENT === 'production',
@@ -34,6 +34,11 @@ const NAV_ITEMS = [
         icon: <GiMonkey />,
         link: CLIENT_ROUTES.nft,
         name: 'Nfts',
+    },
+    {
+        icon: <SiAboutdotme />,
+        link: CLIENT_ROUTES.nft,
+        name: 'About',
     },
 ];
 const config = {

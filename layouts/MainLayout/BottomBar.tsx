@@ -11,7 +11,7 @@ const BottomBar: React.FC = () => {
 
     return (
         <div className="bottombar-layout">
-            <Stack direction={'row'} spacing={'12'}>
+            <Stack direction={'row'} spacing={'10'}>
                 {NAV_ITEMS.map(({ icon, link, name }) => (
                     <Link href={link} key={link}>
                         <a>

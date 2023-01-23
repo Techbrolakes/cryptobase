@@ -39,7 +39,7 @@ const theme = extendTheme({
     textStyles: {
         h1: {
             // you can also use responsive styles
-            fontSize: ['48px', '72px'],
+            fontSize: ['28px', '36px', '48px', '52px'],
             fontWeight: 'bold',
             lineHeight: '110%',
         },
@@ -53,9 +53,14 @@ const theme = extendTheme({
             fontWeight: 'semibold',
             lineHeight: '110%',
         },
+        h4: {
+            fontSize: ['20px', '24px', '28px', '32px'],
+            fontWeight: 'semibold',
+            lineHeight: '110%',
+        },
         p: {
             fontSize: ['14px', '15px', '16px'],
-            fontWeight: 'medium',
+            fontWeight: 'semibold',
             lineHeight: '24px',
         },
     },
