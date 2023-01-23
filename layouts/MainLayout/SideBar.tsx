@@ -9,7 +9,7 @@ import config from '@/configConstants';
 const { NAV_ITEMS } = config;
 const { sidebarOuterBoxStyles } = themeConstants;
 
-const Menu: React.FC = () => {
+const SideBar: React.FC = () => {
     const router = useRouter();
     const path = router.pathname;
 
@@ -38,4 +38,4 @@ const Menu: React.FC = () => {
     );
 };
 
-export default Menu;
+export default SideBar;

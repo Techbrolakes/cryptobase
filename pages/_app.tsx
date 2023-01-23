@@ -1,6 +1,8 @@
 import React from 'react';
 import Router from 'next/router';
 import nProgress from 'nprogress';
+import 'styles/overrides.scss';
+import 'styles/nprogress.css';
 import 'styles/globals.scss';
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';

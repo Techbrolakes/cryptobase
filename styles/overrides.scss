@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'duffish';
+    src: url('../public/fonts/Duffish.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'satoshi';
+    src: url('../public/fonts/Satoshi-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'satoshi';
+    src: url('../public/fonts/Satoshi-Medium.otf') format('truetype');
+    font-weight: medium;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'satoshi';
+    src: url('../public/fonts/Satoshi-Bold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'satoshi';
+    src: url('../public/fonts/Satoshi-Light.otf') format('truetype');
+    font-weight: light;
+    font-style: normal;
+}
+
+// STARTING BOTTOM BAR STYLES
+.bottom {
+    display: none;
+
+    @media (max-width: 850px) {
+        display: block;
+    }
+}
+
+.bottombar-layout {
+    position: fixed;
+    background-color: black;
+    z-index: 20;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+.bottomLinkActiveStyles {
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 2px 0px 1px 2px rgba(0, 0, 0, 0.4);
+}
+.bottomLinkInActiveStyles {
+    color: #a0aec0;
+    font-weight: 600;
+    box-shadow: 2px 0px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+// BEGINNING OF SIDEBAR STYLES
+.sidebar {
+    flex: 0.2;
+    width: 100%;
+    background-color: rgb(0, 21, 41);
+
+    @media (max-width: 850px) {
+        display: none;
+    }
+}
+
+.sidebar-layout {
+    position: fixed;
+    padding: 20px 10px;
+    left: 0;
+    margin: 10px;
+    height: 100vh;
+    margin: 0px;
+    background-color: rgb(0, 21, 41);
+}
+.linkActiveStyles {
+    background-color: #edf2f7;
+    color: #171923;
+    padding: 6px 12px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: 600;
+    box-shadow: 2px 0px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+// MAIN LAYOUT STYLES
+.main {
+    flex: 0.8;
+    width: 100%;
+}
+
+.app {
+    display: flex;
+    width: 100%;
+    @media (max-width: 850px) {
+        display: block;
+    }
+}
+
+// BEGINNING OF PAGE SCROLLBAR STYLES
+::-webkit-scrollbar {
+    width: 0.7rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#1a202c, #1a202c);
+    border-bottom: 2px;
+    height: 2rem;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+.no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb {
+    background: none;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    height: 0;
+}
+// ENDING OF PAGE SCROLLBAR STYLES

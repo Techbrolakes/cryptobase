@@ -22,7 +22,7 @@ const NAV_ITEMS = [
     {
         icon: <SiBitcoinsv />,
         link: CLIENT_ROUTES.coins,
-        name: 'Cryptocurrencies',
+        name: 'Coins',
     },
     {
         icon: <BsCurrencyExchange />,

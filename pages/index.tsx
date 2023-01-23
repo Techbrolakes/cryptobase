@@ -10,10 +10,17 @@ const Home: NextPage = () => {
     return (
         <MainLayout>
             <PageHead title="Home of crypto" />
-            <section className="min-h-screen">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis rerum eveniet, sapiente fugiat aut et
-                aspernatur adipisci ea blanditiis aperiam eos voluptate alias necessitatibus eligendi vero autem
-                repudiandae accusamus libero.
+            <section>
+                <Text>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis rerum eveniet, sapiente fugiat aut et
+                    aspernatur adipisci ea blanditiis aperiam eos voluptate alias necessitatibus eligendi vero autem
+                    repudiandae accusamus libero.
+                </Text>
+                <Text>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis rerum eveniet, sapiente fugiat aut et
+                    aspernatur adipisci ea blanditiis aperiam eos voluptate alias necessitatibus eligendi vero autem
+                    repudiandae accusamus libero.
+                </Text>
             </section>
         </MainLayout>
     );

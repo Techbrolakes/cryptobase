@@ -1,5 +1,6 @@
 import React from 'react';
-import Menu from './Menu';
+import BottomBar from './BottomBar';
+import SideBar from './SideBar';
 
 interface IProps {
     children: React.ReactNode;
@@ -7,11 +8,14 @@ interface IProps {
 const MainLayout: React.FC<IProps> = ({ children }: IProps) => {
     return (
         <>
-            <div className="app ">
+            <div className="app">
                 <div className="sidebar min-h-screen">
-                    <Menu />
+                    <SideBar />
                 </div>
                 <div className="main">{children}</div>
+            </div>
+            <div className="bottom">
+                <BottomBar />
             </div>
         </>
     );
