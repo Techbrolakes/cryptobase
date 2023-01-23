@@ -20,6 +20,7 @@
       "@/blocks/*": ["components/blocks/*"],
       "@/animations/*": ["animations/*"],
       "@/layouts/*": ["layouts/*"],
+      "@/themeConstants/*": ["constants/*"],
       "@/services/*": ["config/services/*"],
       "@pages/*": ["pages/*"],
       "@config/*": ["config/*"],

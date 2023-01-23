@@ -48,5 +48,65 @@
     }
 }
 
+.app {
+    display: flex;
+}
+
+.sidebar {
+    flex: 0.2;
+    width: 100%;
+    background-color: rgb(0, 21, 41);
+}
+
+.main {
+    flex: 0.8;
+    width: 100%;
+}
+.sidebar-layout {
+    position: fixed;
+    padding: 20px 10px;
+    left: 0;
+    margin: 10px;
+    height: 100vh;
+    margin: 0px;
+    background-color: rgb(0, 21, 41);
+}
+.column {
+    overflow-y: auto;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    display: flex;
+}
+
+::-webkit-scrollbar {
+    width: 0.7rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#1a202c, #1a202c);
+    border-bottom: 2px;
+    height: 2rem;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+.no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb {
+    background: none;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    height: 0;
+}
+
 @tailwind components;
 @tailwind utilities;
