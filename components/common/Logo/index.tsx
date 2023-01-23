@@ -8,7 +8,7 @@ const Logo: React.FC = () => {
     const router = useRouter();
     return (
         <>
-            <Heading onClick={() => router.push(CLIENT_ROUTES.home)} className="p-2">
+            <Heading onClick={() => router.push(CLIENT_ROUTES.home)} className="p-2 cursor-pointer">
                 CryptoBase
             </Heading>
         </>

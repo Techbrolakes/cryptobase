@@ -27,8 +27,10 @@ const SideBar: React.FC = () => {
                                 className={path === link ? 'linkActiveStyles' : null}
                                 _hover={{ color: 'blue.500' }}
                             >
-                                <Text>{icon}</Text>
-                                <Text as="p">{name}</Text>
+                                <Text fontSize={'2xl'}>{icon}</Text>
+                                <Text as="p" fontWeight={'bold'}>
+                                    {name}
+                                </Text>
                             </Flex>
                         </a>
                     </Link>
