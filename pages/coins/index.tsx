@@ -1,3 +1,4 @@
+import CoinSection from '@/blocks/coins/CoinSection';
 import PageHead from '@/common/PageHead';
 import MainLayout from '@/layouts/MainLayout';
 import { NextPage } from 'next';
@@ -8,7 +9,7 @@ const Coins: NextPage = () => {
         <>
             <PageHead title="Coins" />
             <MainLayout>
-                <h1>Coins Page</h1>
+                <CoinSection />
             </MainLayout>
         </>
     );

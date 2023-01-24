@@ -18,7 +18,7 @@ const CoinCard: React.FC<IProps> = ({ btcPrice, change, iconUrl, marketCap, name
     const router = useRouter();
     return (
         <Box
-            className="w-full lg:w-[350px] shadow-2xl space-y-12 p-6 cursor-pointer"
+            className="w-full lg:w-[330px] shadow-2xl space-y-12 p-8 cursor-pointer"
             onClick={() => router.push(CLIENT_ROUTES.coinsDetails.replace('%id%', uuid))}
         >
             <section className="flex justify-between items-center">
