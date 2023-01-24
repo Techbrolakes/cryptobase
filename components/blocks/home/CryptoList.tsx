@@ -12,7 +12,7 @@ const CryptoList: React.FC = () => {
     const coins = data?.data?.coins;
 
     return (
-        <div className="p-6 space-y-20">
+        <div className="p-1 lg:p-6 space-y-20">
             <section className="flex justify-between items-center">
                 <h5 className="cb-text lg:cb-heading-five">Top 12 Cryptos In The World</h5>
                 <h6

@@ -1,3 +1,13 @@
+export interface IGetCryptoHistory {
+    data: {
+        change: number;
+        history: {
+            price: number;
+            timestamp: number;
+        }[];
+    };
+}
+
 export interface IGetCryptoDetails {
     data: {
         coin: {
@@ -26,6 +36,8 @@ export interface IGetCryptoDetails {
             price: number;
             btcPrice: number;
             priceAt: number;
+            change: number;
+            rank: number;
         };
     };
 }

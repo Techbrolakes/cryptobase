@@ -23,7 +23,7 @@ const Coin: React.FC = () => {
 
     if (isFetching) return <Spinner />;
     return (
-        <section className="p-3 lg:p-6 space-y-4 mb-20 lg:mb-20">
+        <section className="p-1 lg:p-6 space-y-4 mb-20 lg:mb-20">
             <div className="w-2/3 lg:w-1/2 mx-auto">
                 <Input name="" variant="filled" placeholder="Search Cryptocurrency" />
             </div>

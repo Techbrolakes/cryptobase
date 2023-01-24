@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IGetCryptoStats, IGetCryptoDetails } from './interface';
+import { IGetCryptoStats, IGetCryptoDetails, IGetCryptoHistory } from './interface';
 
 const coinRankingApiHeaders = {
     'X-RapidAPI-Host': process.env.NEXT_PUBLIC_X_RapidAPI_Host,
@@ -17,8 +17,11 @@ export const coinRankingApi = createApi({
         getCryptos: builder.query<IGetCryptoStats, number>({
             query: (count) => createRequest(`/coins?limit=${count}`),
         }),
+        getCryptosPriceHistory: builder.query<IGetCryptoHistory, string>({
+            query: (id) => createRequest(`/coin/${id}/history`),
+        }),
     }),
     reducerPath: 'coinRankingApi',
 });
 
-export const { useGetCryptosQuery, useGetCryptoDetailsQuery } = coinRankingApi;
+export const { useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptosPriceHistoryQuery } = coinRankingApi;

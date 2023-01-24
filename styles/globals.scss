@@ -29,6 +29,9 @@
     .cb-text {
         @apply font-semibold antialiased leading-loose text-base;
     }
+    .cb-text {
+        @apply font-semibold antialiased leading-loose text-sm;
+    }
 }
 
 @tailwind components;
