@@ -38,7 +38,7 @@ const CryptoStats: React.FC = () => {
     if (isFetching) return <Spinner />;
     return (
         <Box className="space-6 lg:space-y-10 p-6">
-            <h2 className="cb-heading-two">Global Crypto Stats</h2>
+            <h4 className="cb-heading-four mb-4">Global Crypto Stats</h4>
             <Swiper
                 className="max-w-2xl md:max-w-4xl lg:max-w-[74rem] h-[220px]"
                 modules={[Navigation, Pagination, Scrollbar, Autoplay]}

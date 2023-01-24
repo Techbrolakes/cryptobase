@@ -4,7 +4,7 @@ import CryptoStats from './CryptoStats';
 
 const HomeSection: React.FC = () => {
     return (
-        <div>
+        <div className="space-y-10 lg:space-y-20">
             <CryptoStats />
             <CryptoList />
         </div>
