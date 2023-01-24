@@ -35,11 +35,6 @@ const NAV_ITEMS = [
         link: CLIENT_ROUTES.nft,
         name: 'Nfts',
     },
-    {
-        icon: <SiAboutdotme />,
-        link: CLIENT_ROUTES.nft,
-        name: 'About',
-    },
 ];
 const config = {
     CLIENT_ROUTES,

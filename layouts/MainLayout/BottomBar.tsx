@@ -1,7 +1,7 @@
 import React from 'react';
 import config from '@config/constants';
 import Link from 'next/link';
-import { Stack, Text, VStack } from '@chakra-ui/react';
+import { Flex, Stack, Text, VStack } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 const { NAV_ITEMS } = config;
 
@@ -11,7 +11,7 @@ const BottomBar: React.FC = () => {
 
     return (
         <div className="bottombar-layout">
-            <Stack direction={'row'} spacing={'10'}>
+            <Flex justify={'space-between'} w={'100%'} px={'4'}>
                 {NAV_ITEMS.map(({ icon, link, name }) => (
                     <Link href={link} key={link}>
                         <a>
@@ -25,7 +25,7 @@ const BottomBar: React.FC = () => {
                         </a>
                     </Link>
                 ))}
-            </Stack>
+            </Flex>
         </div>
     );
 };
