@@ -13,7 +13,7 @@ const MainLayout: React.FC<IProps> = ({ children }: IProps) => {
     return (
         <Box>
             <div className="app">
-                <div className="sidebar min-h-screen">
+                <div className="sidebar">
                     <SideBar />
                 </div>
                 <div className="main">{children}</div>

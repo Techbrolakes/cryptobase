@@ -10,7 +10,7 @@ import { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
 
 const { FaCoins, FaMoneyBill, FaExchangeAlt, FaStore } = icons;
 const CryptoStats: React.FC = () => {
-    const { isFetching, data } = useGetCryptosQuery();
+    const { isFetching, data } = useGetCryptosQuery(2);
     const stats = data?.data?.stats;
     const statsArray = [
         {
@@ -37,53 +37,51 @@ const CryptoStats: React.FC = () => {
 
     if (isFetching) return <Spinner />;
     return (
-        <Box className="space-y-24 p-6">
-            <h1 className="cb-heading-one">Global Crypto Stats</h1>
-            <section>
-                <Swiper
-                    className="max-w-2xl md:max-w-4xl lg:max-w-6xl h-[220px]"
-                    modules={[Navigation, Pagination, Scrollbar, Autoplay]}
-                    spaceBetween={50}
-                    slidesPerView={3}
-                    breakpoints={{
-                        0: {
-                            slidesPerView: 1,
-                            spaceBetween: 20,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 50,
-                        },
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 40,
-                        },
-                        850: {
-                            slidesPerView: 2,
-                            spaceBetween: 40,
-                        },
-                    }}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    }}
-                    scrollbar={{ draggable: true }}
-                >
-                    {statsArray?.map(({ value, icon, name }) => (
-                        <SwiperSlide key={value}>
-                            <section className="space-y-4 shadow-lg rounded-md p-6 w-full lg:w-[350px]">
-                                <span className="text-3xl">{icon}</span>
-                                <h6 className="cb-heading-six">{name}</h6>
-                                <p className="cb-text tracking-wider">{millify(value, { precision: 6 })}</p>
-                            </section>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </section>
+        <Box className="space-6 lg:space-y-10 p-6">
+            <h2 className="cb-heading-two">Global Crypto Stats</h2>
+            <Swiper
+                className="max-w-2xl md:max-w-4xl lg:max-w-[74rem] h-[220px]"
+                modules={[Navigation, Pagination, Scrollbar, Autoplay]}
+                spaceBetween={40}
+                slidesPerView={3}
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                    850: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                }}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                scrollbar={{ draggable: true }}
+            >
+                {statsArray?.map(({ value, icon, name }) => (
+                    <SwiperSlide key={value}>
+                        <section className="space-y-4 shadow-2xl rounded-md p-6 w-full lg:w-[340px]">
+                            <span className="text-3xl">{icon}</span>
+                            <h6 className="cb-heading-six">{name}</h6>
+                            <p className="cb-text tracking-wider">{millify(value, { precision: 6 })}</p>
+                        </section>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </Box>
     );
 };

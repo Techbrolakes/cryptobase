@@ -9,6 +9,7 @@ const ENVIRONMENT = {
 
 const CLIENT_ROUTES = {
     coins: '/coins',
+    coinsDetails: '/coins/%id%',
     exchanges: '/exchanges',
     home: '/',
     nft: '/nfts',

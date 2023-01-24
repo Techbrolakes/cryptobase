@@ -10,6 +10,21 @@ interface IGetCryptoStats {
             totalMarketCap: number;
             total24hVolume: number;
         };
+        coins: {
+            uuid: string;
+            symbol: string;
+            name: string;
+            color: string;
+            iconUrl: string;
+            marketCap: number;
+            price: number;
+            listedAt: number;
+            tier: number;
+            change: number;
+            rank: number;
+            lowVolume: boolean;
+            btcPrice: number;
+        }[];
     };
 }
 const coinRankingApiHeaders = {
@@ -22,8 +37,8 @@ const createRequest = (url) => ({ headers: coinRankingApiHeaders, url });
 export const coinRankingApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_COINRANKING_API_URL }),
     endpoints: (builder) => ({
-        getCryptos: builder.query<IGetCryptoStats, void>({
-            query: () => createRequest('/coins'),
+        getCryptos: builder.query<IGetCryptoStats, number>({
+            query: (count) => createRequest(`/coins?limit=${count}`),
         }),
     }),
     reducerPath: 'coinRankingApi',
