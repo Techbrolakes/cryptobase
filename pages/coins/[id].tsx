@@ -3,6 +3,9 @@ import React from 'react';
 import config from '@config/constants';
 import MainLayout from '@/layouts/MainLayout';
 import PageHead from '@/common/PageHead';
+import { useGetCryptoDetailsQuery } from '@/services/CoinRankingApi';
+import SingleCoinDetails from '@/blocks/coins/SingleCoinDetails';
+import Spinner from '@/common/Spinner/Index';
 
 const { CLIENT_ROUTES } = config;
 
@@ -11,10 +14,13 @@ interface IProps {
 }
 
 const CoinDetails: NextPage<IProps> = ({ id }: IProps) => {
+    const { data, isFetching } = useGetCryptoDetailsQuery(id);
+
     return (
         <MainLayout>
             <PageHead title="Coin Details" />
-            <div>CoinDetails - {id}/</div>
+            {isFetching && <Spinner />}
+            <SingleCoinDetails data={data} />
         </MainLayout>
     );
 };
