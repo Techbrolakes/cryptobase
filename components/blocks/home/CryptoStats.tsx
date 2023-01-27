@@ -15,7 +15,7 @@ const CryptoStats: React.FC = () => {
     const statsArray = [
         {
             icon: <FaCoins />,
-            name: 'Total Cryptocurriencies',
+            name: 'Total Cryptos',
             value: stats?.totalCoins,
         },
         {
@@ -37,51 +37,52 @@ const CryptoStats: React.FC = () => {
 
     if (isFetching) return <Spinner />;
     return (
-        <Box className="space-6 lg:space-y-10 p-6">
+        <Box className="lg:space-y-10 p-6">
             <h4 className="cb-heading-four mb-4">Global Crypto Stats</h4>
-            <Swiper
-                className="max-w-2xl md:max-w-4xl lg:max-w-[74rem] h-[220px]"
-                modules={[Navigation, Pagination, Scrollbar, Autoplay]}
-                spaceBetween={40}
-                slidesPerView={3}
-                breakpoints={{
-                    0: {
-                        slidesPerView: 1,
-                        spaceBetween: 20,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 50,
-                    },
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 40,
-                    },
-                    850: {
-                        slidesPerView: 2,
-                        spaceBetween: 40,
-                    },
-                }}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                }}
-                scrollbar={{ draggable: true }}
-            >
-                {statsArray?.map(({ value, icon, name }) => (
-                    <SwiperSlide key={value}>
-                        <section className="space-y-4 shadow-2xl rounded-md p-6 w-full lg:w-[340px]">
-                            <span className="text-3xl">{icon}</span>
-                            <h6 className="cb-heading-six">{name}</h6>
-                            <p className="cb-text tracking-wider">{millify(value, { precision: 6 })}</p>
-                        </section>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+            <div className="flex justify-start">
+                <Swiper
+                    className="w-auto md:w-[70vw] h-[220px] !ml-[-10px]"
+                    modules={[Navigation, Pagination, Scrollbar, Autoplay]}
+                    spaceBetween={100}
+                    slidesPerView={3}
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 50,
+                        },
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 40,
+                        },
+                        850: {
+                            slidesPerView: 2,
+                            spaceBetween: 40,
+                        },
+                    }}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                >
+                    {statsArray?.map(({ value, icon, name }) => (
+                        <SwiperSlide key={value}>
+                            <section className="space-y-4 shadow-lg rounded-md py-6 px-5 w-full lg:w-[320px]">
+                                <span className="text-3xl">{icon}</span>
+                                <h6 className="cb-heading-six">{name}</h6>
+                                <p className="cb-text tracking-wider">{millify(value, { precision: 6 })}</p>
+                            </section>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </Box>
     );
 };
