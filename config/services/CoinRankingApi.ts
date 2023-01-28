@@ -3,7 +3,7 @@ import { IGetCryptoStats, IGetCryptoDetails, IGetCryptoHistory } from './interfa
 
 const coinRankingApiHeaders = {
     'X-RapidAPI-Host': process.env.NEXT_PUBLIC_X_RapidAPI_Host,
-    'X-RapidAPI-Key': process.env.NEXT_PUBLIC_X_RapidAPI_KEY,
+    'X-RapidAPI-Key': '9b38a7098cmsh2b5f1cd6d23f129p1c3affjsnbad795183d39',
 };
 
 const createRequest = (url) => ({ headers: coinRankingApiHeaders, url });
