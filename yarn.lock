@@ -2721,10 +2721,10 @@
   "resolved" "https://registry.npmjs.org/fraction.js/-/fraction.js-4.2.0.tgz"
   "version" "4.2.0"
 
-"framer-motion@>=4.0.0":
-  "integrity" "sha512-z5hQvIa+9uFcA2aFmT+6XsUfuVPl9Y1uhs5yntxU1Q0E6hm4wDRpvFlB/yYN/cdfXUctf/1Q1Rep/dqOipz8sg=="
-  "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-8.5.0.tgz"
-  "version" "8.5.0"
+"framer-motion@^8.5.4", "framer-motion@>=4.0.0":
+  "integrity" "sha512-xBVovXUIdpKvRvIPsrSTiyXZUYyct9zarzdVeyzv+V6DFsDpHIuppyOjDO8VM1fBspDn+rUU4ZFZ5yJxLmzebQ=="
+  "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-8.5.4.tgz"
+  "version" "8.5.4"
   dependencies:
     "@motionone/dom" "^10.15.3"
     "hey-listen" "^1.0.8"
