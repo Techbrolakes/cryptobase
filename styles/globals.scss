@@ -29,8 +29,8 @@
     .cb-text {
         @apply font-semibold antialiased leading-loose text-base;
     }
-    .cb-text {
-        @apply font-semibold antialiased leading-loose text-sm;
+    .cb-span {
+        @apply font-medium antialiased leading-loose text-sm;
     }
 }
 

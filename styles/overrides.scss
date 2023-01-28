@@ -136,4 +136,22 @@
     border-bottom-left-radius: 0;
     height: 0;
 }
-// ENDING OF PAGE SCROLLBAR STYLES
+
+// HTML PARSER CONFIGS
+.coin-desc {
+    h3 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.8;
+        color: #fff;
+    }
+    a {
+        color: #35977f;
+        font-weight: 600;
+    }
+}
