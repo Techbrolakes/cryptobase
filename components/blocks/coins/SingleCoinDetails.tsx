@@ -211,10 +211,10 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
                                 key={type}
                                 className="flex justify-between border-b-2 border-spacing-6 border-white"
                             >
-                                <div>{name}</div>
-                                <div className="cursor-pointer" onClick={() => router.push(url)}>
-                                    <span className="text-green-300 font-medium">{url}</span>
-                                </div>
+                                <span className="font-bold capitalize">{type}</span>
+                                <a className="cursor-pointer" href={url} target="_blank" rel="noreferrer">
+                                    <span className="text-green-300 font-bold capitalize">{name}</span>
+                                </a>
                             </section>
                         ))}
                     </main>
