@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { IGetCryptoDetails } from '@/services/interface';
-import { Avatar, Skeleton } from '@chakra-ui/react';
+import { Avatar, Skeleton, Stack } from '@chakra-ui/react';
 import Spinner from '@/common/Spinner/Index';
 import HTMLReactParser from 'html-react-parser';
 import { useGetCryptosPriceHistoryQuery } from '@/services/CoinRankingApi';
@@ -18,8 +18,7 @@ interface IProps {
 
 const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
     const details = data?.data?.coin;
-    const { data: coinHistory, isFetching } = useGetCryptosPriceHistoryQuery(details?.uuid);
-    const router = useRouter();
+    const { data: coinHistory, isFetching, isLoading } = useGetCryptosPriceHistoryQuery(details?.uuid);
     const coinPrice = [];
     const coinTimestamp = [];
 
@@ -192,7 +191,17 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
 
             {/* COIN CHART */}
             <section>
-                {isFetching ? <Skeleton /> : <ApexCharts type="area" height="350" options={options} series={series} />}
+                {isFetching && isLoading ? (
+                    <Stack>
+                        <Skeleton height="20px" />
+                        <Skeleton height="20px" />
+                        <Skeleton height="20px" />
+                        <Skeleton height="20px" />
+                        <Skeleton height="20px" />
+                    </Stack>
+                ) : (
+                    <ApexCharts type="area" height="350" options={options} series={series} />
+                )}
             </section>
 
             {/* COIN DESC */}
