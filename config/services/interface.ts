@@ -18,7 +18,7 @@ export interface IGetCryptoDetails {
             color: string;
             iconUrl: string;
             websiteUrl: string;
-            link: {
+            links: {
                 name: string;
                 type: string;
                 url: string;

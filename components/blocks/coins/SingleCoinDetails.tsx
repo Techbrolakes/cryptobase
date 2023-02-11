@@ -1,16 +1,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { IGetCryptoDetails } from '@/services/interface';
-import { Avatar } from '@chakra-ui/react';
+import { Avatar, Skeleton } from '@chakra-ui/react';
 import Spinner from '@/common/Spinner/Index';
 import HTMLReactParser from 'html-react-parser';
 import { useGetCryptosPriceHistoryQuery } from '@/services/CoinRankingApi';
-// https://github.com/apexcharts/react-apexcharts/issues/240
 import dynamic from 'next/dynamic';
 const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { ApexOptions } from 'apexcharts';
 import millify from 'millify';
 import dayjs from 'dayjs';
+import { useRouter } from 'next/router';
 
 interface IProps {
     data: IGetCryptoDetails;
@@ -19,7 +19,7 @@ interface IProps {
 const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
     const details = data?.data?.coin;
     const { data: coinHistory, isFetching } = useGetCryptosPriceHistoryQuery(details?.uuid);
-    console.log(coinHistory);
+    const router = useRouter();
     const coinPrice = [];
     const coinTimestamp = [];
 
@@ -192,7 +192,7 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
 
             {/* COIN CHART */}
             <section>
-                <ApexCharts type="area" height="350" options={options} series={series} />
+                {isFetching ? <Skeleton /> : <ApexCharts type="area" height="350" options={options} series={series} />}
             </section>
 
             {/* COIN DESC */}
@@ -202,8 +202,23 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
                     <p className="coin-desc space-y-4">{HTMLReactParser(details?.description)}</p>
                 </div>
 
-                {/* COIN STATS */}
-                <div></div>
+                {/* COIN LINKS */}
+                <div className="space-y-8">
+                    <h1 className="cb-heading-five"> {details?.name} Links</h1>
+                    <main className="space-y-10 ">
+                        {details?.links?.map(({ name, type, url }) => (
+                            <section
+                                key={type}
+                                className="flex justify-between border-b-2 border-spacing-6 border-white"
+                            >
+                                <div>{name}</div>
+                                <div className="cursor-pointer" onClick={() => router.push(url)}>
+                                    <span className="text-green-300 font-medium">{url}</span>
+                                </div>
+                            </section>
+                        ))}
+                    </main>
+                </div>
             </section>
         </div>
     );
