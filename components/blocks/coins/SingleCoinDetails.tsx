@@ -288,7 +288,7 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
                                 {toggle ? (
                                     <Avatar src={String(value)} size={'sm'} />
                                 ) : (
-                                    <span className="text-green-300 font-bold capitalize">{value}</span>
+                                    <span className="font-bold capitalize">{value}</span>
                                 )}
                             </section>
                         ))}
@@ -311,7 +311,7 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
                                     <span className="text-2xl">{icon}</span>
                                     <span className="font-bold capitalize">{name}</span>
                                 </div>
-                                <span className="text-green-300 font-bold capitalize">{value}</span>
+                                <span className="font-bold capitalize">{value}</span>
                             </section>
                         ))}
                     </main>

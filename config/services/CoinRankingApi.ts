@@ -17,7 +17,6 @@ export const coinRankingApi = createApi({
         getCryptos: builder.query<IGetCryptoStats, number>({
             query: (count) => createRequest(`/coins?limit=${count}`),
         }),
-
         getCryptosPriceHistory: builder.query<IGetCryptoHistory, string>({
             query: (id) => createRequest(`/coin/${id}/history`),
         }),
