@@ -12,6 +12,7 @@ import millify from 'millify';
 import dayjs from 'dayjs';
 import Loading from '@/common/Loading';
 import icons from '@/icons';
+import { getOrdinal } from '@/common/utils';
 
 const {
     AiOutlineDollarCircle,
@@ -42,14 +43,14 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
         },
         {
             icon: <SiBaremetrics />,
-            name: 'Symbol',
+            name: 'Coin Icon',
             toggle: true,
             value: details?.iconUrl,
         },
         {
             icon: <BiHash />,
             name: 'Rank',
-            value: details?.rank,
+            value: getOrdinal(details?.rank),
         },
         {
             icon: <AiOutlineDollarCircle />,
