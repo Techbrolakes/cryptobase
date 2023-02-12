@@ -38,6 +38,7 @@ export interface IGetCryptoDetails {
             priceAt: number;
             change: number;
             rank: number;
+            volume: number;
         };
     };
 }

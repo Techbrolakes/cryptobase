@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { IGetCryptoDetails } from '@/services/interface';
-import { Avatar, Skeleton, Stack } from '@chakra-ui/react';
+import { Avatar } from '@chakra-ui/react';
 import Spinner from '@/common/Spinner/Index';
 import HTMLReactParser from 'html-react-parser';
 import { useGetCryptosPriceHistoryQuery } from '@/services/CoinRankingApi';
@@ -10,8 +10,20 @@ const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { ApexOptions } from 'apexcharts';
 import millify from 'millify';
 import dayjs from 'dayjs';
-import { useRouter } from 'next/router';
+import Loading from '@/common/Loading';
+import icons from '@/icons';
 
+const {
+    AiOutlineDollarCircle,
+    SiBaremetrics,
+    BiHash,
+    GiTwoCoins,
+    AiOutlineFund,
+    AiOutlineMoneyCollect,
+    AiOutlineStop,
+    AiOutlineCheck,
+    AiOutlineExclamationCircle,
+} = icons;
 interface IProps {
     data: IGetCryptoDetails;
 }
@@ -21,6 +33,63 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
     const { data: coinHistory, isFetching, isLoading } = useGetCryptosPriceHistoryQuery(details?.uuid);
     const coinPrice = [];
     const coinTimestamp = [];
+
+    const STATS = [
+        {
+            icon: <GiTwoCoins />,
+            name: 'Coin Name',
+            value: details?.name,
+        },
+        {
+            icon: <SiBaremetrics />,
+            name: 'Symbol',
+            toggle: true,
+            value: details?.iconUrl,
+        },
+        {
+            icon: <BiHash />,
+            name: 'Rank',
+            value: details?.rank,
+        },
+        {
+            icon: <AiOutlineDollarCircle />,
+            name: 'Price to USD',
+            value: `$ ${millify(details?.price)}`,
+        },
+        {
+            icon: <AiOutlineMoneyCollect />,
+            name: 'Market Cap',
+            value: `$ ${millify(Number(details?.marketCap))}`,
+        },
+    ];
+
+    const STATS2 = [
+        {
+            icon: <AiOutlineFund />,
+            name: 'Number Of Markets',
+            value: details?.numberOfMarkets,
+        },
+        {
+            icon: <AiOutlineMoneyCollect />,
+            name: 'Number Of Exchanges',
+            value: details?.numberOfExchanges,
+        },
+        {
+            icon: <AiOutlineExclamationCircle />,
+            name: 'Aprroved Supply',
+            value: details?.supply.confirmed ? <AiOutlineCheck /> : <AiOutlineStop />,
+        },
+        {
+            icon: <AiOutlineExclamationCircle />,
+            name: 'Total Supply',
+            value: `$ ${millify(details?.supply.total)}`,
+        },
+        {
+            icon: <AiOutlineExclamationCircle />,
+            name: 'Circulating Supply',
+            value: `$ ${millify(Number(details?.supply.circulating))}`,
+        },
+    ];
 
     for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
         coinPrice.push(
@@ -175,7 +244,7 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
 
     if (!details) return <Spinner />;
     return (
-        <div className="p-6 space-y-12">
+        <div className="p-6 space-y-24">
             <section className="text-center space-y-4">
                 <div className="flex items-center gap-3 justify-center">
                     <Avatar src={details?.iconUrl} size={'sm'} />
@@ -192,16 +261,61 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
             {/* COIN CHART */}
             <section>
                 {isFetching && isLoading ? (
-                    <Stack>
-                        <Skeleton height="20px" />
-                        <Skeleton height="20px" />
-                        <Skeleton height="20px" />
-                        <Skeleton height="20px" />
-                        <Skeleton height="20px" />
-                    </Stack>
+                    <Loading />
                 ) : (
                     <ApexCharts type="area" height="350" options={options} series={series} />
                 )}
+            </section>
+
+            {/* COIN OVERVIEW */}
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="space-y-10">
+                    <main>
+                        <h1 className="cb-heading-five !capitalize"> {details?.name} Value Statistics</h1>
+                        <p className="coin-desc space-y-4">
+                            An overview showing the statistics of {details?.name}, such as the base and quote currency,
+                            the rank, and trading volume.
+                        </p>
+                    </main>
+                    <main className="space-y-10 ">
+                        {STATS?.map(({ name, value, icon, toggle }) => (
+                            <section key={name} className="flex justify-between border-b-2 pb-2 border-white">
+                                <div className="flex gap-3 items-center">
+                                    <span className="text-2xl">{icon}</span>
+
+                                    <span className="font-bold capitalize">{name}</span>
+                                </div>
+                                {toggle ? (
+                                    <Avatar src={String(value)} size={'sm'} />
+                                ) : (
+                                    <span className="text-green-300 font-bold capitalize">{value}</span>
+                                )}
+                            </section>
+                        ))}
+                    </main>
+                </div>
+
+                {/* COIN OTHER STATS */}
+                <div className="space-y-10">
+                    <main>
+                        <h1 className="cb-heading-five"> Other Stats Info</h1>
+                        <p className="coin-desc space-y-4">
+                            An overview showing the statistics of {details?.name}, such as the base and quote currency,
+                            the rank, and trading volume.
+                        </p>
+                    </main>
+                    <main className="space-y-10 ">
+                        {STATS2?.map(({ name, value, icon }) => (
+                            <section key={name} className="flex justify-between border-b-2 pb-2 border-white">
+                                <div className="flex gap-3 items-center">
+                                    <span className="text-2xl">{icon}</span>
+                                    <span className="font-bold capitalize">{name}</span>
+                                </div>
+                                <span className="text-green-300 font-bold capitalize">{value}</span>
+                            </section>
+                        ))}
+                    </main>
+                </div>
             </section>
 
             {/* COIN DESC */}
@@ -216,10 +330,7 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
                     <h1 className="cb-heading-five"> {details?.name} Links</h1>
                     <main className="space-y-10 ">
                         {details?.links?.map(({ name, type, url }) => (
-                            <section
-                                key={type}
-                                className="flex justify-between border-b-2 border-spacing-6 border-white"
-                            >
+                            <section key={type} className="flex justify-between border-b-2 pb-2 border-white">
                                 <span className="font-bold capitalize">{type}</span>
                                 <a className="cursor-pointer" href={url} target="_blank" rel="noreferrer">
                                     <span className="text-green-300 font-bold capitalize">{name}</span>
