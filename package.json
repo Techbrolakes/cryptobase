@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint:commit": "commitlint -e $GIT_PARAMS",
     "lint": "next lint",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "postinstall": "husky install",
@@ -13,6 +14,11 @@
     "prebuild": "npm run",
     "prepare": "husky install"
   },
+  "husky": {
+  "hooks": {
+    "pre-commit": "npm run lint:commit"
+  }
+},
   "dependencies": {
     "@chakra-ui/react": "^2.4.9",
     "@emotion/react": "^11.10.5",
@@ -39,6 +45,8 @@
     "swiper": "^8.4.6"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.3",
+    "@commitlint/config-conventional": "^17.4.3",
     "@testing-library/react": "^13.4.0",
     "@types/node": "^18.7.14",
     "@types/nprogress": "^0.2.0",
