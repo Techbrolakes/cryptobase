@@ -5,9 +5,14 @@ import { Avatar, Box, Button, Input } from '@chakra-ui/react';
 import Lottie from 'lottie-react';
 import bitcoin from '@/animations/bitcoin.json';
 import { getOrdinal } from '@/common/utils';
+import Loading from '@/common/Loading';
+import config from '@config/constants';
+import { useRouter } from 'next/router';
 
+const { CLIENT_ROUTES } = config;
 const ExchangesSection: React.FC = () => {
     const { data, isFetching } = useGetExchangesQuery(10);
+    const router = useRouter();
     const coinPerRow = 9;
     const [next, setNext] = useState(coinPerRow);
     const [loading, setLoading] = useState(false);
@@ -32,9 +37,14 @@ const ExchangesSection: React.FC = () => {
                 cryptocurrencies or digital currencies for other assets, such as conventional fiat money or other
                 digital currencies.
             </h1>
+            <div>{!data && <Loading />}</div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-                {data?.slice(0, next).map(({ name, image, trust_score_rank, country, year_established }) => (
-                    <Box className="w-full lg:w-[330px] shadow-md space-y-12 p-8 cursor-pointer" key={name}>
+                {data?.slice(0, next).map(({ name, image, trust_score_rank, country, year_established, id }) => (
+                    <Box
+                        className="w-full lg:w-[330px] shadow-md space-y-12 p-8 cursor-pointer"
+                        key={name}
+                        onClick={() => router.push(CLIENT_ROUTES.exchangeDetails.replace('%id%', id))}
+                    >
                         <section className="flex justify-between items-center">
                             <article className="flex gap-3 items-center">
                                 <span className="cb-text">{trust_score_rank}</span>

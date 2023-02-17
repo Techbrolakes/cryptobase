@@ -25,6 +25,7 @@ const {
     AiOutlineCheck,
     AiOutlineExclamationCircle,
 } = icons;
+
 interface IProps {
     data: IGetCryptoDetails;
 }

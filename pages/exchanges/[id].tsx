@@ -1,11 +1,11 @@
 import React from 'react';
-import PageHead from '@/common/PageHead';
-import MainLayout from '@/layouts/MainLayout';
 import { GetServerSideProps, NextPage } from 'next';
 import config from '@config/constants';
-import { useGetCryptoDetailsQuery } from '@/services/CoinRankingApi';
-import SingleCoinDetails from '@/blocks/coins/SingleCoinDetails';
+import MainLayout from '@/layouts/MainLayout';
+import PageHead from '@/common/PageHead';
 import Spinner from '@/common/Spinner/Index';
+import { useGetExchangesByIdQuery } from '@/services/CoingeckoApi';
+import ExchangesDetails from '@/blocks/exchanges/ExchangesDetails';
 
 const { CLIENT_ROUTES } = config;
 
@@ -13,14 +13,15 @@ interface IProps {
     id: string;
 }
 
-const CoinDetails: NextPage<IProps> = ({ id }: IProps) => {
-    const { data, isFetching } = useGetCryptoDetailsQuery(id);
+const ExchangeDetail: NextPage<IProps> = ({ id }: IProps) => {
+    const { data, isFetching } = useGetExchangesByIdQuery(id);
+    console.log(data);
 
     return (
         <MainLayout>
             <PageHead title="Coin Details" />
             {isFetching && <Spinner />}
-            <SingleCoinDetails data={data} />
+            <ExchangesDetails data={data} />
         </MainLayout>
     );
 };
@@ -45,4 +46,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
 };
 
-export default CoinDetails;
+export default ExchangeDetail;

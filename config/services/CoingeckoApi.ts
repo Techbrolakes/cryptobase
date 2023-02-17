@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IGetExchanges } from './interface';
+import { IGetExchanges, IGetExchangesDetails } from './interface';
 
 const createRequest = (url) => ({ url });
 
@@ -9,8 +9,11 @@ export const coinGeckoApi = createApi({
         getExchanges: builder.query<IGetExchanges[], number>({
             query: () => createRequest('/exchanges'),
         }),
+        getExchangesById: builder.query<IGetExchangesDetails, string>({
+            query: (id) => createRequest(`/exchanges/${id}`),
+        }),
     }),
     reducerPath: 'coinGeckoApi',
 });
 
-export const { useGetExchangesQuery } = coinGeckoApi;
+export const { useGetExchangesQuery, useGetExchangesByIdQuery } = coinGeckoApi;

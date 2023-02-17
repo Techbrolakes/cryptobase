@@ -1,7 +1,7 @@
 import React from 'react';
 import icons from '@/icons';
 
-const { BsCurrencyExchange, MdHome, SiBitcoinsv, GiMonkey, SiAboutdotme } = icons;
+const { BsCurrencyExchange, MdHome, SiBitcoinsv, GiMonkey } = icons;
 const ENVIRONMENT = {
     development: process.env.NEXT_PUBLIC_ENVIRONMENT === 'development',
     production: process.env.NEXT_PUBLIC_ENVIRONMENT === 'production',
@@ -10,6 +10,7 @@ const ENVIRONMENT = {
 const CLIENT_ROUTES = {
     coins: '/coins',
     coinsDetails: '/coins/%id%',
+    exchangeDetails: '/exchanges/%id%',
     exchanges: '/exchanges',
     home: '/',
     nft: '/nfts',
