@@ -7,6 +7,7 @@ const Spinner: React.FC = () => {
         <div className="min-h-screen flex flex-col space-y-2 justify-center items-center">
             <Lottie animationData={bitcoin} className="w-48" />
             <p className="cb-text">Loading</p>
+            <p className="cb-text">Made By Lekan Dar</p>
         </div>
     );
 };

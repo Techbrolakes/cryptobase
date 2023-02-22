@@ -11,6 +11,7 @@ import HTMLReactParser from 'html-react-parser';
 import millify from 'millify';
 import icons from '@/icons';
 import { getOrdinal } from '@/common/utils';
+import Loading from '@/common/Loading';
 
 const {
     AiOutlineDollarCircle,
@@ -275,22 +276,26 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
                             the rank, and trading volume.
                         </p>
                     </main>
-                    <main className="space-y-10 ">
-                        {STATS?.map(({ name, value, icon, toggle }) => (
-                            <section key={name} className="flex justify-between border-b-2 pb-2 border-white">
-                                <div className="flex gap-3 items-center">
-                                    <span className="text-2xl">{icon}</span>
+                    {data ? (
+                        <main className="space-y-10 ">
+                            {STATS?.map(({ name, value, icon, toggle }) => (
+                                <section key={name} className="flex justify-between border-b-2 pb-2 border-white">
+                                    <div className="flex gap-3 items-center">
+                                        <span className="text-2xl">{icon}</span>
 
-                                    <span className="font-bold capitalize">{name}</span>
-                                </div>
-                                {toggle ? (
-                                    <Avatar src={String(value)} size={'sm'} />
-                                ) : (
-                                    <span className="font-bold capitalize">{value}</span>
-                                )}
-                            </section>
-                        ))}
-                    </main>
+                                        <span className="font-bold capitalize">{name}</span>
+                                    </div>
+                                    {toggle ? (
+                                        <Avatar src={String(value)} size={'sm'} />
+                                    ) : (
+                                        <span className="font-bold capitalize">{value}</span>
+                                    )}
+                                </section>
+                            ))}
+                        </main>
+                    ) : (
+                        <Loading />
+                    )}
                 </div>
 
                 {/* COIN OTHER STATS */}
@@ -302,17 +307,21 @@ const SingleCoinDetails: React.FC<IProps> = ({ data }: IProps) => {
                             the rank, and trading volume.
                         </p>
                     </main>
-                    <main className="space-y-10 ">
-                        {STATS2?.map(({ name, value, icon }) => (
-                            <section key={name} className="flex justify-between border-b-2 pb-2 border-white">
-                                <div className="flex gap-3 items-center">
-                                    <span className="text-2xl">{icon}</span>
-                                    <span className="font-bold capitalize">{name}</span>
-                                </div>
-                                <span className="font-bold capitalize">{value}</span>
-                            </section>
-                        ))}
-                    </main>
+                    {data ? (
+                        <main className="space-y-10 ">
+                            {STATS2?.map(({ name, value, icon }) => (
+                                <section key={name} className="flex justify-between border-b-2 pb-2 border-white">
+                                    <div className="flex gap-3 items-center">
+                                        <span className="text-2xl">{icon}</span>
+                                        <span className="font-bold capitalize">{name}</span>
+                                    </div>
+                                    <span className="font-bold capitalize">{value}</span>
+                                </section>
+                            ))}
+                        </main>
+                    ) : (
+                        <Loading />
+                    )}
                 </div>
             </section>
             {/* COIN DESC */}
