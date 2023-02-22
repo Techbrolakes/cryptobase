@@ -1,7 +1,7 @@
-import React from 'react';
 import icons from '@/icons';
+import React from 'react';
 
-const { BsCurrencyExchange, MdHome, SiBitcoinsv, GiMonkey } = icons;
+const { BsCurrencyExchange, MdHome, SiBitcoinsv, GiNewspaper } = icons;
 const ENVIRONMENT = {
     development: process.env.NEXT_PUBLIC_ENVIRONMENT === 'development',
     production: process.env.NEXT_PUBLIC_ENVIRONMENT === 'production',
@@ -33,9 +33,9 @@ const NAV_ITEMS = [
         name: 'Exchanges',
     },
     {
-        icon: <GiMonkey />,
+        icon: <GiNewspaper />,
         link: CLIENT_ROUTES.nft,
-        name: 'Nfts',
+        name: 'News',
     },
 ];
 const config = {

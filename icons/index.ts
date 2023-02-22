@@ -1,7 +1,7 @@
 import { MdHome } from 'react-icons/md';
 import { SiBitcoinsv } from 'react-icons/si';
 import { BsCurrencyExchange } from 'react-icons/bs';
-import { GiMonkey, GiTwoCoins, GiCalendarHalfYear } from 'react-icons/gi';
+import { GiMonkey, GiTwoCoins, GiNewspaper, GiCalendarHalfYear } from 'react-icons/gi';
 import { SiAboutdotme, SiBaremetrics } from 'react-icons/si';
 import { FaCoins, FaMoneyBill, FaExchangeAlt, FaStore, FaFacebook, FaReddit } from 'react-icons/fa';
 import { FcGlobe } from 'react-icons/fc';
@@ -33,6 +33,7 @@ const icons = {
     FcGlobe,
     GiCalendarHalfYear,
     GiMonkey,
+    GiNewspaper,
     GiTwoCoins,
     MdHome,
     SiAboutdotme,

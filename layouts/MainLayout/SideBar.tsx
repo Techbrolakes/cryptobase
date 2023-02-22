@@ -4,7 +4,7 @@ import themeConstants from '@/themeConstants/index';
 import Link from 'next/link';
 import { Flex, Stack, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import config from '@/configConstants';
+import config from '@config/constants';
 
 const { NAV_ITEMS } = config;
 const { sidebarOuterBoxStyles } = themeConstants;

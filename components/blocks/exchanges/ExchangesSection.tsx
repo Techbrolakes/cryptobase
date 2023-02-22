@@ -20,7 +20,7 @@ const ExchangesSection: React.FC = () => {
     const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     };
-    const filteredExchanges = data.filter((exchange) =>
+    const filteredExchanges = data?.filter((exchange) =>
         exchange.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
 

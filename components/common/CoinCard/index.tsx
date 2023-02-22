@@ -31,7 +31,10 @@ const CoinCard: React.FC<IProps> = ({ btcPrice, change, iconUrl, marketCap, name
 
             <section className="space-y-4">
                 <p className="cb-text tracking-wide"> Market Price: {millify(marketCap)}</p>
-                <p className="cb-text tracking-wide"> Daily Change: {change}%</p>
+                <p className="cb-text tracking-wide">
+                    Daily Change : {'  '}
+                    <span className={`${change > 0 ? '!text-green-700' : '!text-red-700'}`}>{change}%</span>
+                </p>
                 <p className="cb-text tracking-wider"> Price: {millify(btcPrice, { precision: 6 })} </p>
             </section>
         </Box>
