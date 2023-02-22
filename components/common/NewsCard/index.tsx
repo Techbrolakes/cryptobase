@@ -8,7 +8,7 @@ interface IProps {
 const NewsCard: React.FC<IProps> = ({ title, url }) => {
     return (
         <a className="cursor-pointer block" href={url} target="_blank" rel="noreferrer">
-            <section className="flex justify-between items-center cursor-pointer">
+            <section className="flex justify-between items-start lg:items-center gap-5 cursor-pointer">
                 <div>
                     <Text noOfLines={2} className="cb-span text-base font-medium">
                         {title}
