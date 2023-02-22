@@ -6,8 +6,10 @@ import Lottie from 'lottie-react';
 import bitcoin from '@/animations/bitcoin.json';
 import { getOrdinal } from '@/common/utils';
 import Loading from '@/common/Loading';
+import empty from '@/animations/133529-no-data.json';
 import config from '@config/constants';
 import { useRouter } from 'next/router';
+import { isEmpty } from 'lodash';
 
 const { CLIENT_ROUTES } = config;
 const ExchangesSection: React.FC = () => {
@@ -45,11 +47,13 @@ const ExchangesSection: React.FC = () => {
                     onChange={handleSearchInputChange}
                 />
             </div>
-            <h1 className="cb-text text-center">
-                A cryptocurrency exchange, or a digital currency exchange, is a business that allows customers to trade
-                cryptocurrencies or digital currencies for other assets, such as conventional fiat money or other
-                digital currencies.
-            </h1>
+            {!isEmpty(filteredExchanges) && (
+                <h1 className="cb-text text-center">
+                    A cryptocurrency exchange, or a digital currency exchange, is a business that allows customers to
+                    trade cryptocurrencies or digital currencies for other assets, such as conventional fiat money or
+                    other digital currencies.
+                </h1>
+            )}
             <div>{!data && <Loading />}</div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
                 {filteredExchanges
@@ -83,6 +87,13 @@ const ExchangesSection: React.FC = () => {
             {next < filteredExchanges?.length && (
                 <div className="flex justify-center">
                     <Button onClick={handleLoadMore}>Load More Exchanges</Button>
+                </div>
+            )}
+            {isEmpty(filteredExchanges) && (
+                <div className="min-h-[70vh] flex justify-center items-center">
+                    <main className="flex flex-col justify-center items-center">
+                        <Lottie animationData={empty} className="w-80" />
+                    </main>
                 </div>
             )}
         </section>

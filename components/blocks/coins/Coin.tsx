@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useGetCryptosQuery } from '@/services/CoinRankingApi';
 import Spinner from '@/common/Spinner/Index';
 import Lottie from 'lottie-react';
+import empty from '@/animations/133529-no-data.json';
 import bitcoin from '@/animations/bitcoin.json';
 import CoinCard from '@/common/CoinCard';
 import { Button, Input } from '@chakra-ui/react';
+import { isEmpty } from 'lodash';
 
 const Coin: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -49,6 +51,13 @@ const Coin: React.FC = () => {
             {next < filteredCoins?.length && (
                 <div className="flex justify-center">
                     <Button onClick={handleLoadMore}>Load More Coins</Button>
+                </div>
+            )}
+            {isEmpty(filteredCoins) && (
+                <div className="min-h-[70vh] flex justify-center items-center">
+                    <main className="flex flex-col justify-center items-center">
+                        <Lottie animationData={empty} className="w-80" />
+                    </main>
                 </div>
             )}
         </section>
