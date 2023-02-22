@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { coinRankingApi } from '@/services/CoinRankingApi';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { coinGeckoApi } from '@/services/CoingeckoApi';
+import { coinNewsApi } from '@/services/CryptonewsApi';
 
 export const store = configureStore({
     middleware: (getDefaultMiddleware) =>
@@ -9,6 +10,7 @@ export const store = configureStore({
     reducer: {
         [coinRankingApi.reducerPath]: coinRankingApi.reducer,
         [coinGeckoApi.reducerPath]: coinGeckoApi.reducer,
+        [coinNewsApi.reducerPath]: coinNewsApi.reducer,
     },
 });
 

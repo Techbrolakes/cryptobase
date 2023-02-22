@@ -8,7 +8,7 @@ const Nfts: NextPage = () => {
         <>
             <PageHead title="Nfts" />
             <MainLayout>
-                <h1>Nfts Page</h1>
+                <h1>News Page</h1>
             </MainLayout>
         </>
     );

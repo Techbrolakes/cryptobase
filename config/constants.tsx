@@ -13,7 +13,7 @@ const CLIENT_ROUTES = {
     exchangeDetails: '/exchanges/%id%',
     exchanges: '/exchanges',
     home: '/',
-    nft: '/nfts',
+    news: '/news',
 };
 
 const NAV_ITEMS = [
@@ -34,7 +34,7 @@ const NAV_ITEMS = [
     },
     {
         icon: <GiNewspaper />,
-        link: CLIENT_ROUTES.nft,
+        link: CLIENT_ROUTES.news,
         name: 'News',
     },
 ];
