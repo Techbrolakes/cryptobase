@@ -1,3 +1,31 @@
+export interface IGetAllNews {
+    yahoo: {
+        title: string;
+        url: string;
+        description: string;
+    }[];
+    coindesk: {
+        title: string;
+        url: string;
+        description: string;
+    }[];
+    coinjournal: {
+        title: string;
+        url: string;
+        description: string;
+    }[];
+    cointelegraph: {
+        title: string;
+        url: string;
+        description: string;
+    }[];
+    cryptoninjas: {
+        title: string;
+        url: string;
+        description: string;
+    }[];
+}
+
 export interface IGetExchangesDetails {
     name: string;
     year_established: number;
