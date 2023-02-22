@@ -7,11 +7,18 @@ import CoinCard from '@/common/CoinCard';
 import { Button, Input } from '@chakra-ui/react';
 
 const Coin: React.FC = () => {
+    const [searchQuery, setSearchQuery] = useState('');
     const { data, isFetching } = useGetCryptosQuery(1000);
     const coinPerRow = 9;
     const [next, setNext] = useState(coinPerRow);
     const [loading, setLoading] = useState(false);
-    const coins = data?.data?.coins;
+    const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(event.target.value);
+    };
+
+    const filteredCoins = data?.data.coins.filter((coin) =>
+        coin.name.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
 
     const handleLoadMore = () => {
         setLoading(true);
@@ -25,15 +32,21 @@ const Coin: React.FC = () => {
     return (
         <section className="p-1 lg:p-6 space-y-4 mb-20 lg:mb-20">
             <div className="w-2/3 lg:w-1/2 mx-auto">
-                <Input name="" variant="filled" placeholder="Search Cryptocurrency" />
+                <Input
+                    name="searchCoin"
+                    variant="filled"
+                    placeholder="Search Cryptocurrency"
+                    value={searchQuery}
+                    onChange={handleSearchInputChange}
+                />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-                {coins?.slice(0, next).map((coin) => (
+                {filteredCoins?.slice(0, next).map((coin) => (
                     <CoinCard key={coin.uuid} {...coin} />
                 ))}
             </div>
-            <div className="flex justify-center">{loading && <Lottie animationData={bitcoin} className="w-24" />}</div>{' '}
-            {next < coins?.length && (
+            <div className="flex justify-center">{loading && <Lottie animationData={bitcoin} className="w-24" />}</div>
+            {next < filteredCoins?.length && (
                 <div className="flex justify-center">
                     <Button onClick={handleLoadMore}>Load More Coins</Button>
                 </div>
