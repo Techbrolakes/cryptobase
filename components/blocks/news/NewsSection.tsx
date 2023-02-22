@@ -8,13 +8,13 @@ import CointelegraphSection from './CointelegraphSection';
 import CryptoninjasSection from './CryptoninjasSection';
 
 const NewsSection: React.FC = () => {
-    const { data, isFetching } = useGetAllNewsQuery(100);
+    const { data, isFetching, isLoading } = useGetAllNewsQuery(100);
 
     console.log(data);
 
-    if (isFetching) return <Spinner />;
+    if (isFetching && isLoading) return <Spinner />;
     return (
-        <section className="p-1 lg:p-6 space-y-12 mb-20 lg:mb-20">
+        <section className="p-4 lg:p-6 space-y-12 mb-20 lg:mb-20">
             <h1 className="cb-heading-four">NewsSection</h1>
 
             <CryptoninjasSection />

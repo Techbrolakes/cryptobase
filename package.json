@@ -15,10 +15,10 @@
     "prepare": "husky install"
   },
   "husky": {
-  "hooks": {
-    "pre-commit": "npm run lint:commit"
-  }
-},
+    "hooks": {
+      "pre-commit": "npm run lint:commit"
+    }
+  },
   "dependencies": {
     "@chakra-ui/react": "^2.4.9",
     "@emotion/react": "^11.10.5",

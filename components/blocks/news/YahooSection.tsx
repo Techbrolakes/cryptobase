@@ -6,7 +6,11 @@ import NewsCard from '@/common/NewsCard';
 import { useGetAllNewsQuery } from '@/services/CoinNewsApi';
 import Loading from '@/common/Loading';
 
-const YahooSection: React.FC = () => {
+interface IProps {
+    showHeader?: boolean;
+}
+
+const YahooSection: React.FC<IProps> = ({ showHeader }) => {
     const { data, isFetching } = useGetAllNewsQuery(100);
     const [yahoo, setYahoo] = useState(8);
     const [loading, setLoading] = useState(false);
@@ -21,7 +25,7 @@ const YahooSection: React.FC = () => {
     if (isFetching) return <Loading />;
     return (
         <section className="space-y-5">
-            <h6 className="cb-heading-six">Yahoo News</h6>
+            {showHeader && <h6 className="cb-heading-six">Yahoo News</h6>}
             <div className="space-y-8">
                 {data?.yahoo.slice(0, yahoo).map((info) => (
                     <NewsCard key={info.title} {...info} />
@@ -38,6 +42,10 @@ const YahooSection: React.FC = () => {
             </div>
         </section>
     );
+};
+
+YahooSection.defaultProps = {
+    showHeader: true,
 };
 
 export default YahooSection;
